@@ -1,22 +1,25 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+        stage('Do everything in parallel') {
+            parallel {
+            stage('Build') {
+                steps {
+                    echo 'Building..'
+                }
+            }
+            stage('Test') {
+                steps {
+                    echo 'Testing..'
+                }
+            }
+            stage('Deploy') {
+                steps {
+                    sh "cat hello.txt"
+                    echo 'Deploying....'
+                }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh "cat hello.txt"
-                echo 'Deploying....'
-            }
-        }
-    }
 }

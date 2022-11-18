@@ -9,6 +9,9 @@ pipeline {
                 }
             }
             stage('Test') {
+                agent {
+                    lable "linux"
+                }
                 steps {
                     echo 'Testing..'
                 }

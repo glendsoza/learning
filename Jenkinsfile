@@ -5,7 +5,7 @@ pipeline {
             parallel {
             stage('Build') {
                 agent {
-                    label "Built-In Node"
+                    label "default"
                 }
                 steps {
                     echo 'Building..'
@@ -22,7 +22,7 @@ pipeline {
             }
             stage('Deploy') {
                 agent {
-                    label "Built-In Node"
+                    label "default"
                 }
                 steps {
                     sh "cat hello.txt"

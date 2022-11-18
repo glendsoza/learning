@@ -7,9 +7,7 @@ pipeline {
                 agent {
                     label "default"
                 }
-                steps {
                     echo 'Building..'
-                }
             }
             stage('Test') {
                 agent {
